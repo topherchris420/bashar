@@ -14,15 +14,15 @@ system_prompt = _get_system_prompt()
 if "messages" not in st.session_state:
     st.session_state.messages = [{"role": "system", "content": system_prompt}]
 
-st.set_page_config(page_icon="📐", layout="wide", page_title="Vers3Dynamics")
+st.set_page_config(page_icon="🛸", layout="wide", page_title="Vers3Dynamics")
 
 def icon(emoji: str):
     """Shows an emoji as a Notion-style page icon."""
     st.write(f'<span style="font-size: 78px; line-height: 1">{emoji}</span>', unsafe_allow_html=True)
 
-icon("🧬")
+icon("👽")
 st.markdown('<a href="https://groqhealth.streamlit.app/" style="text-decoration:none; color: #ADD8E6;"><h2>Vers3Dynamics</h2></a>', unsafe_allow_html=True)
-st.subheader("Meet Leonardo Da Vinci 🫀, Powered by Groq 🚀")
+st.subheader("Say Hello to Bashar, Powered by Groq 🚀")
 
 # Add a picture with a caption
 st.image("images/Leonardo-legacy.png", caption="Buongiorno", width=200)
@@ -63,7 +63,7 @@ max_tokens_range = models[model_option]["tokens"]
 
 with col2:
     max_tokens = st.slider(
-        "Max Tokens 🎨:",
+        "Max Tokens 🚀:",
         min_value=512,
         max_value=max_tokens_range,
         value=min(32768, max_tokens_range),
@@ -73,7 +73,7 @@ with col2:
 
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
-    avatar = '🧬' if message["role"] == "assistant" else '🧑🏾‍💻'
+    avatar = '👽' if message["role"] == "assistant" else '🧑🏾‍💻'
     if message["role"] != "system":  # Do not display the system message
         with st.chat_message(message["role"], avatar=avatar):
             st.markdown(message["content"])
@@ -84,7 +84,7 @@ def generate_chat_responses(chat_completion) -> Generator[str, None, None]:
         if chunk.choices[0].delta.content:
             yield chunk.choices[0].delta.content
 
-if prompt := st.chat_input("Ciao", key="user_input"):
+if prompt := st.chat_input("Let our dialogue be a beacon of light on your path to self-discovery", key="user_input"):
     st.session_state.messages.append({"role": "user", "content": prompt})
 
     with st.chat_message("user", avatar='🧑🏾‍💻'):
@@ -99,7 +99,7 @@ if prompt := st.chat_input("Ciao", key="user_input"):
         )
 
         # Use the generator function with st.write_stream
-        with st.chat_message("assistant", avatar="🧬"):
+        with st.chat_message("assistant", avatar="👽"):
             chat_responses_generator = generate_chat_responses(chat_completion)
             full_response = st.write_stream(chat_responses_generator)
     except Exception as e:
@@ -111,6 +111,3 @@ if prompt := st.chat_input("Ciao", key="user_input"):
     else:
         combined_response = "\n".join(str(item) for item in full_response)
         st.session_state.messages.append({"role": "assistant", "content": combined_response})
-
-# Add a video with custom size and loop
-st.video("images/leo.mp4")
