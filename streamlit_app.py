@@ -24,8 +24,6 @@ icon("👽")
 st.markdown('<a href="https://gist.githubusercontent.com/topherchris420/a8b24f8790d1f98a515138cca59a69b8/raw/535b4bbef00c769ea09b70b89941a2e6c12a0e22/Hello/" style="text-decoration:none; color: #ADD8E6;"><h2>Vers3Dynamics</h2></a>', unsafe_allow_html=True)
 st.subheader("Say Hello to Bashar, Powered by Groq 🚀")
 
-# Add a picture with a caption
-st.image("images/animism.jpg", caption="'The first step towards true enlightenment is to lighten up on yourself.'", width=200)
 
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
