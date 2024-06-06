@@ -20,7 +20,7 @@ def icon(emoji: str):
     """Shows an emoji as a Notion-style page icon."""
     st.write(f'<span style="font-size: 78px; line-height: 1">{emoji}</span>', unsafe_allow_html=True)
 
-icon("👽DigiDopps™")
+icon("🌐DigiDopps™")
 st.markdown('<a href="https://gist.githubusercontent.com/topherchris420/a8b24f8790d1f98a515138cca59a69b8/raw/535b4bbef00c769ea09b70b89941a2e6c12a0e22/Hello/" style="text-decoration:none; color: #ADD8E6;"><h2>Say Hello to Bashar, Powered by Groq 🛸</h2></a>', unsafe_allow_html=True)
 
 
