@@ -101,7 +101,7 @@ if prompt := st.chat_input("Let our dialogue be a beacon of light on your path t
             chat_responses_generator = generate_chat_responses(chat_completion)
             full_response = st.write_stream(chat_responses_generator)
     except Exception as e:
-        st.error(f"Oops! Something went wrong: {e}", icon="🐢🚨")
+        st.error(f"Oops! Something went wrong: {e}", icon="🚨")
 
     # Append the full response to session_state.messages
     if isinstance(full_response, str):
