@@ -47,7 +47,7 @@ with col1:
         "Choose your cryptoterrestrial",
         options=list(models.keys()),
         format_func=lambda x: models[x]["name"],
-        index=2  # Default to LLaMA
+        index=3  # Default to LLaMA
     )
 
 # Detect model change and clear chat history if model has changed
